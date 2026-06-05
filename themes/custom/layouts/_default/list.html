@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div class="container">
+  {{ range where .Site.RegularPages "Type" "posts" }}
+  <div class="post-list-item">
+    <div class="date">{{ .Date.Format "January 2, 2006" }}</div>
+    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <p class="desc">{{ .Description | default .Summary | truncate 130 }}</p>
+    <a href="{{ .Permalink }}" class="read-more">Read article →</a>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
